@@ -7,6 +7,8 @@ Project("{10F7EC71-E809-7A00-0924-60E3A449F85F}") = "RogueRainbow", "Assembly-CS
 EndProject
 Project("{10F7EC71-E809-7A00-0924-60E3A449F85F}") = "RogueRainbow", "Assembly-CSharp-Editor-firstpass.csproj", "{984F9635-4C71-F0D4-C6D8-77E644EDD581}"
 EndProject
+Project("{10F7EC71-E809-7A00-0924-60E3A449F85F}") = "RogueRainbow", "Assembly-CSharp-Editor.csproj", "{8598CC00-DA41-F297-B641-CDEE090AE387}"
+EndProject
 Project("{10F7EC71-E809-7A00-0924-60E3A449F85F}") = "RogueRainbow", "Assembly-UnityScript-firstpass.unityproj", "{BC6E3DB2-14EF-464F-5885-172D13C8F492}"
 EndProject
 Global
@@ -27,6 +29,10 @@ Global
 		{984F9635-4C71-F0D4-C6D8-77E644EDD581}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{984F9635-4C71-F0D4-C6D8-77E644EDD581}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{984F9635-4C71-F0D4-C6D8-77E644EDD581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8598CC00-DA41-F297-B641-CDEE090AE387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8598CC00-DA41-F297-B641-CDEE090AE387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8598CC00-DA41-F297-B641-CDEE090AE387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8598CC00-DA41-F297-B641-CDEE090AE387}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC6E3DB2-14EF-464F-5885-172D13C8F492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC6E3DB2-14EF-464F-5885-172D13C8F492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC6E3DB2-14EF-464F-5885-172D13C8F492}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,7 +41,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
+																							GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -53,4 +59,5 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
+
 EndGlobal

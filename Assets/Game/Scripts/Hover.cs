@@ -8,22 +8,26 @@ public class Hover : MonoBehaviour {
 	public Vector3 bounceAmount = new Vector3(0f, 0.5f, 0f);
 	public float bounceSpeed = 0.5f;
 	
+	Transform this_transform;
 	Vector3 originalPosition;
 	bool movingAway = true;
 	
 	// Use this for initialization
 	void Start () {
-		originalPosition = transform.position;
+		this_transform = transform;
+		originalPosition = this_transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (GameManager.Instance.paused) return;
+		
 		// Update the direction so it goes away and comes back
-		if (movingAway && transform.position == originalPosition + bounceAmount)
+		if (movingAway && this_transform.position == originalPosition + bounceAmount)
 		{
 			movingAway = false;
 		}
-		else if (!movingAway && transform.position == originalPosition)
+		else if (!movingAway && this_transform.position == originalPosition)
 		{
 			movingAway = true;
 		}
@@ -31,11 +35,11 @@ public class Hover : MonoBehaviour {
 		// Move the object
 		if (movingAway)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, originalPosition + bounceAmount, bounceSpeed);
+			this_transform.position = Vector3.MoveTowards(this_transform.position, originalPosition + bounceAmount, bounceSpeed);
 		}
 		else
 		{
-			transform.position = Vector3.MoveTowards(transform.position, originalPosition, bounceSpeed);
+			this_transform.position = Vector3.MoveTowards(this_transform.position, originalPosition, bounceSpeed);
 		}
 	}
 }
