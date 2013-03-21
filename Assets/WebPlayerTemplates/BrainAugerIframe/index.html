@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Unity Webplayer</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text/javascript" src="' + unityObjectUrl + '"></script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+		// initialize unity object
+		var params = {
+			backgroundcolor: "444444",
+			bordercolor: "000000",
+			textcolor: "FFFFFF",
+			//logoimage: "logo.png",
+			//progressbarimage: "progressbarfull.png",
+			//progressframeimage: "progressbarempty.png",
+			//disableContextMenu: true
+		};
+
+		var unityDefined = false;
+		var u = new UnityObject2({ params: params });
+		u.observeProgress(function (progress) {
+			var $missingScreen = jQuery(progress.targetEl).find(".missing");
+			switch(progress.pluginStatus) {
+				case "unsupported":
+					showUnsupported();
+				break;
+				case "broken":
+					alert("You will need to restart your browser after installation.");
+				break;
+				case "missing":
+					$missingScreen.find("a").click(function (e) {
+						e.stopPropagation();
+						e.preventDefault();
+						u.installPlugin();
+						return false;
+					});
+					$missingScreen.show();
+				break;
+				case "installed":
+					$missingScreen.remove();
+				break;
+				case "first":
+				break;
+			}
+		});
+		
+		// Replace missing div with unity object
+		jQuery(function(){
+			u.initPlugin(jQuery("#unityPlayer")[0], "WebPlayer.unity3d");
+		});
+		-->
+		</script>
+		<style type="text/css">
+		<!--
+		body {
+			font-family: Helvetica, Verdana, Arial, sans-serif;
+			background-color: 444444;
+			color: white;
+			text-align: center;
+			padding: 0px;
+			margin: 0px 0px 0px 0px;
+			height: 100%;
+            width:  100%;
+			background-image:url('http://www.brainauger.com/wp-content/uploads/2013/01/wallpaper324845.jpg');
+		}
+		a {
+			border-style: none;
+			outline : none;
+		}
+		a img {outline : none;}
+		img {border : 0;}
+		a:link, a:visited {
+			color: #bfbfbf;
+		}
+		a:active, a:hover {
+			color: #bfbfbf;
+		}
+		p.header {
+			font-size: small;
+		}
+		p.header span {
+			font-weight: bold;
+		}
+		p.footer {
+			font-size: x-small;
+		}
+		div.content {
+			margin: auto;
+			width: 100%;
+		}
+		div.missing {
+			margin: auto;
+			position: relative;
+			top: 50%;
+			width: 193px;
+		}
+		div.missing a {
+			height: 63px;
+			position: relative;
+			top: -31px;
+		}
+		div.missing img {
+			border-width: 0px;
+		}
+		div#unityPlayer {
+			cursor: default;
+			height: 100%;
+			width:  100%;
+		}
+		-->
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div id="unityPlayer">
+				<div class="missing">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
